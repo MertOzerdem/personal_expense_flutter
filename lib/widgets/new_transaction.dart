@@ -7,6 +7,17 @@ class NewTransaction extends StatelessWidget {
 
   NewTransaction({required this.onClick, Key? key}) : super(key: key);
 
+  void submitData() {
+    final enteredTitle = titleController.text != '' ? titleController.text : 'Default Title';
+    final enteredAmount = double.parse(amountController.text != '' ? amountController.text : '0.0');
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
+    onClick(enteredTitle, enteredAmount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,21 +27,21 @@ class NewTransaction extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextField(
-                decoration: InputDecoration(labelText: 'Title'),
+                decoration: const InputDecoration(labelText: 'Title'),
                 controller: titleController,
+                onSubmitted: (_) => submitData(),
                 // onChanged: (String value) {
                 //   inputTitle = value;
                 // },
               ),
               TextField(
-                decoration: InputDecoration(labelText: 'Amount'),
+                decoration: const InputDecoration(labelText: 'Amount'),
                 controller: amountController,
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                onSubmitted: (_) => submitData(),
               ),
               TextButton(
-                onPressed: () {
-                  onClick(titleController.text != '' ? titleController.text : 'Default Title',
-                      double.parse(amountController.text != '' ? amountController.text : '0.0'));
-                },
+                onPressed: submitData,
                 child: const Text('Add Transaction'),
               ),
             ],
