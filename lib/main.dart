@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Personal Expenses',
       theme: ThemeData(
         fontFamily: 'Quicksand',
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.amber, cardColor: Colors.white70)
+        colorScheme: ColorScheme.fromSwatch(
+                primarySwatch: Colors.amber, cardColor: Colors.white70)
             .copyWith(secondary: Colors.purple),
         // iconTheme: const IconThemeData(
         //   color: Colors.white,
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
               color: Colors.purpleAccent),
         ),
         appBarTheme: AppBarTheme(
-          iconTheme: const IconThemeData(color: Colors.white, opacity: 0.8, size: 30),
+          iconTheme:
+              const IconThemeData(color: Colors.white, opacity: 0.8, size: 30),
           toolbarTextStyle: const TextTheme(
             headline6: TextStyle(
               fontFamily: 'OpenSans',
@@ -90,7 +92,8 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Personal Expenses'),
           actions: <Widget>[
             IconButton(
-                icon: Icon(Icons.add, color: Theme.of(context).appBarTheme.iconTheme?.color),
+                icon: Icon(Icons.add,
+                    color: Theme.of(context).appBarTheme.iconTheme?.color),
                 onPressed: () {}),
           ],
         ),
@@ -112,7 +115,8 @@ class MyHomePage extends StatelessWidget {
               ]),
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add, color: Theme.of(context).appBarTheme.iconTheme?.color),
+          child: Icon(Icons.add,
+              color: Theme.of(context).appBarTheme.iconTheme?.color),
           backgroundColor: Theme.of(context).colorScheme.primary,
           tooltip: "press to add new transaction",
           onPressed: () {},

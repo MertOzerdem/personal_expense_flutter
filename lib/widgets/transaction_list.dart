@@ -19,15 +19,20 @@ class TransactionList extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15.0),
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 15.0,
+                  ),
                   decoration: BoxDecoration(
-                      border: Border.all(
-                          // color: const Color.fromARGB(255, 102, 173, 231),
-                          color: Theme.of(context).colorScheme.primary,
-                          width: 2.0,
-                          style: BorderStyle.solid)),
+                    border: Border.all(
+                        // color: const Color.fromARGB(255, 102, 173, 231),
+                        color: Theme.of(context).colorScheme.primary,
+                        width: 2.0,
+                        style: BorderStyle.solid),
+                  ),
                   padding: const EdgeInsets.all(10),
-                  child: Text('¥: ${transactions[index].amount.toStringAsFixed(2)}',
+                  child: Text(
+                      '¥: ${transactions[index].amount.toStringAsFixed(2)}',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -38,9 +43,11 @@ class TransactionList extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(transactions[index].title, style: Theme.of(context).textTheme.bodyText2),
+                    Text(transactions[index].title,
+                        style: Theme.of(context).textTheme.bodyText2),
                     Text(DateFormat().format(transactions[index].date),
-                        style: const TextStyle(fontSize: 14, color: Colors.grey)),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.grey)),
                   ],
                 ),
               ],
